@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Users, Award, Target, TrendingUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { SEOHead } from '@/components/SEOHead';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 export default function About() {
   const values = [
@@ -26,8 +28,26 @@ export default function About() {
     }
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Atlantis NDT",
+    "description": "Leading provider of Non-Destructive Testing services with over 50 years of collective experience",
+    "foundingDate": "2015",
+    "numberOfEmployees": "50+",
+    "serviceArea": "North America",
+    "expertise": ["Oil & Gas", "Marine", "Aerospace", "Nuclear", "Energy"],
+    "award": "ISO Certified NDT Services"
+  };
+
   return (
     <div className="min-h-screen pt-20">
+      <SEOHead 
+        title="About Us"
+        description="Learn about Atlantis NDT - Leading provider of Non-Destructive Testing services with 50+ certified professionals and Level III qualifications. Over 50 years of collective experience in oil & gas, marine, aerospace, and nuclear industries."
+        keywords="about Atlantis NDT, NDT company history, certified NDT professionals, Level III consultants, NDT expertise, oil gas marine aerospace nuclear"
+        structuredData={structuredData}
+      />
       {/* Hero Section */}
       <motion.section 
         className="py-20 bg-gradient-to-r from-primary/10 to-accent/10"

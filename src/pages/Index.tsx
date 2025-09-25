@@ -1,13 +1,33 @@
 import { Hero } from '@/components/Hero';
 import { AnimatedStats } from '@/components/AnimatedStats';
-import { Navigation } from '@/components/Navigation';
-import { CursorFollower } from '@/components/CursorFollower';
+import { SEOHead } from '@/components/SEOHead';
 import { motion } from 'framer-motion';
 import { CheckCircle, ArrowRight, Star } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
-const Index = () => {
+export default function Index() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Atlantis NDT",
+    "url": "https://atlantisndt.com",
+    "logo": "https://atlantisndt.com/logo.png",
+    "description": "Leading provider of Non-Destructive Testing services, training, and consultancy with state-of-the-art equipment and certified methodologies.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "North America"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-555-123-4567",
+      "contactType": "Customer Service"
+    },
+    "sameAs": [
+      "https://linkedin.com/company/atlantis-ndt",
+      "https://twitter.com/atlantisndt"
+    ]
+  };
   const services = [
     {
       title: "Inspection Services",
@@ -46,13 +66,13 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <CursorFollower />
-      <Navigation />
-      
-      {/* Hero Section */}
+      <SEOHead 
+        title="Home"
+        description="Atlantis NDT - Leading provider of Non-Destructive Testing services with 50+ certified professionals. Specializing in ultrasonic, radiographic, magnetic particle, and penetrant testing across oil & gas, marine, aerospace, and nuclear industries."
+        keywords="NDT services, Non-Destructive Testing, ultrasonic testing, radiographic testing, magnetic particle testing, penetrant testing, eddy current testing, visual testing, asset integrity, quality assurance"
+        structuredData={structuredData}
+      />
       <Hero />
-      
-      {/* Stats Section */}
       <AnimatedStats />
       
       {/* Services Preview */}
@@ -209,6 +229,4 @@ const Index = () => {
       </section>
     </div>
   );
-};
-
-export default Index;
+}

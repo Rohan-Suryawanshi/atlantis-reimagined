@@ -3,6 +3,8 @@ import { GraduationCap, Award, BookOpen, Users, Clock, Trophy } from 'lucide-rea
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { SEOHead } from '@/components/SEOHead';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 export default function Training() {
   const courses = [
@@ -55,8 +57,36 @@ export default function Training() {
     }
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Atlantis NDT Training",
+    "description": "Professional NDT training and certification programs",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "NDT Training Programs",
+      "itemListElement": courses.map((course, index) => ({
+        "@type": "Offer",
+        "position": index + 1,
+        "itemOffered": {
+          "@type": "Course",
+          "name": course.title,
+          "description": course.description,
+          "timeRequired": course.duration,
+          "courseMode": "blended"
+        }
+      }))
+    }
+  };
+
   return (
     <div className="min-h-screen pt-20">
+      <SEOHead 
+        title="Training Programs"
+        description="Professional NDT training and certification programs. Level I, II, III courses in ultrasonic, radiographic, magnetic particle, penetrant, eddy current, and visual testing. VR/AR enhanced learning."
+        keywords="NDT training, NDT certification, ultrasonic training, radiographic training, Level I II III certification, VR AR training, hands-on NDT courses"
+        structuredData={structuredData}
+      />
       {/* Hero Section */}
       <motion.section 
         className="py-20 bg-gradient-to-r from-primary/10 to-accent/10"

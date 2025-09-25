@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { Search, Zap, Eye, Waves, Settings, CheckCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { SEOHead } from '@/components/SEOHead';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 export default function Services() {
   const services = [
@@ -54,8 +56,38 @@ export default function Services() {
     "Transportation"
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Non-Destructive Testing",
+    "provider": {
+      "@type": "Organization",
+      "name": "Atlantis NDT"
+    },
+    "areaServed": "North America",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "NDT Testing Methods",
+      "itemListElement": services.map((service, index) => ({
+        "@type": "Offer",
+        "position": index + 1,
+        "itemOffered": {
+          "@type": "Service",
+          "name": service.title,
+          "description": service.description
+        }
+      }))
+    }
+  };
+
   return (
     <div className="min-h-screen pt-20">
+      <SEOHead 
+        title="NDT Services"
+        description="Comprehensive Non-Destructive Testing services including ultrasonic, radiographic, magnetic particle, penetrant, eddy current, and visual testing. State-of-the-art equipment and certified methodologies."
+        keywords="NDT services, ultrasonic testing, radiographic testing, magnetic particle testing, penetrant testing, eddy current testing, visual testing, non-destructive testing methods"
+        structuredData={structuredData}
+      />
       {/* Hero Section */}
       <motion.section 
         className="py-20 bg-gradient-to-r from-primary/10 to-accent/10"

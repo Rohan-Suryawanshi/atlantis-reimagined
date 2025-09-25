@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import { SEOHead } from '@/components/SEOHead';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 export default function Contact() {
   const contactInfo = [
@@ -34,8 +36,51 @@ export default function Contact() {
     }
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Atlantis NDT",
+    "description": "Professional Non-Destructive Testing services, training, and consultancy",
+    "url": "https://atlantisndt.com",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-555-123-4567",
+      "contactType": "Customer Service",
+      "email": "info@atlantisndt.com"
+    },
+    "serviceArea": "North America",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "NDT Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Ultrasonic Testing",
+            "description": "High-frequency sound waves to detect internal flaws and measure thickness"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Radiographic Testing",
+            "description": "X-ray and gamma ray inspection for internal structure analysis"
+          }
+        }
+      ]
+    }
+  };
+
   return (
     <div className="min-h-screen pt-20">
+      <SEOHead 
+        title="Contact Us"
+        description="Contact Atlantis NDT for professional Non-Destructive Testing services. Expert team providing 24/7 support for inspection, training, and consultancy needs across North America."
+        keywords="contact NDT services, Atlantis NDT contact, NDT inspection quote, professional NDT consulting, emergency NDT services, ultrasonic testing contact"
+        structuredData={structuredData}
+      />
       {/* Hero Section */}
       <motion.section 
         className="py-20 bg-gradient-to-r from-primary/10 to-accent/10"
@@ -64,26 +109,24 @@ export default function Contact() {
       {/* Contact Info Cards */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16">
             {contactInfo.map((info, index) => (
-              <motion.div
+              <ScrollReveal
                 key={info.title}
-                initial={{ y: 30, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                animation="scale"
+                delay={index * 0.1}
               >
-                <Card className="text-center border-0 shadow-md hover-scale">
-                  <CardContent className="p-6">
-                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                      <info.icon className="w-8 h-8 text-primary-foreground" />
+                <Card className="text-center border-0 shadow-md minimal-hover">
+                  <CardContent className="p-4 md:p-6">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                      <info.icon className="w-6 h-6 md:w-8 md:h-8 text-primary-foreground" />
                     </div>
-                    <h3 className="text-lg font-bold mb-2">{info.title}</h3>
-                    <p className="text-primary font-semibold mb-1">{info.details}</p>
-                    <p className="text-sm text-muted-foreground">{info.subtitle}</p>
+                    <h3 className="text-base md:text-lg font-bold mb-2">{info.title}</h3>
+                    <p className="text-primary font-semibold mb-1 text-sm md:text-base">{info.details}</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">{info.subtitle}</p>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
