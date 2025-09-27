@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SEOHead } from '@/components/SEOHead';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { Navigation } from '@/components/Navigation';
 
 export default function Services() {
   const services = [
@@ -82,6 +83,7 @@ export default function Services() {
 
   return (
     <div className="min-h-screen pt-20">
+      <Navigation/>
       <SEOHead 
         title="NDT Services"
         description="Comprehensive Non-Destructive Testing services including ultrasonic, radiographic, magnetic particle, penetrant, eddy current, and visual testing. State-of-the-art equipment and certified methodologies."

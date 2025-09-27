@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { SEOHead } from '@/components/SEOHead';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { Navigation } from '@/components/Navigation';
 
 export default function Training() {
   const courses = [
@@ -81,6 +82,7 @@ export default function Training() {
 
   return (
     <div className="min-h-screen pt-20">
+      <Navigation/>
       <SEOHead 
         title="Training Programs"
         description="Professional NDT training and certification programs. Level I, II, III courses in ultrasonic, radiographic, magnetic particle, penetrant, eddy current, and visual testing. VR/AR enhanced learning."

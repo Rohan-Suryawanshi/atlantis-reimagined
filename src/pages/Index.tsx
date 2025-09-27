@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { CheckCircle, ArrowRight, Star } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { CursorFollower } from '@/components/CursorFollower';
+import { Navigation } from '@/components/Navigation';
 
 export default function Index() {
   const structuredData = {
@@ -66,6 +68,7 @@ export default function Index() {
 
   return (
     <div className="min-h-screen">
+      <Navigation/>
       <SEOHead 
         title="Home"
         description="Atlantis NDT - Leading provider of Non-Destructive Testing services with 50+ certified professionals. Specializing in ultrasonic, radiographic, magnetic particle, and penetrant testing across oil & gas, marine, aerospace, and nuclear industries."
@@ -74,6 +77,7 @@ export default function Index() {
       />
       <Hero />
       <AnimatedStats />
+      <CursorFollower/>
       
       {/* Services Preview */}
       <section className="py-20">

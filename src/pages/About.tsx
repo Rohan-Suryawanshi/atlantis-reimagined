@@ -3,6 +3,7 @@ import { Users, Award, Target, TrendingUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { SEOHead } from '@/components/SEOHead';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { Navigation } from '@/components/Navigation';
 
 export default function About() {
   const values = [
@@ -42,6 +43,7 @@ export default function About() {
 
   return (
     <div className="min-h-screen pt-20">
+      <Navigation/>
       <SEOHead 
         title="About Us"
         description="Learn about Atlantis NDT - Leading provider of Non-Destructive Testing services with 50+ certified professionals and Level III qualifications. Over 50 years of collective experience in oil & gas, marine, aerospace, and nuclear industries."

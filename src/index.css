@@ -114,10 +114,16 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground font-sans overflow-x-hidden;
-    cursor: none;
-  }
+ body {
+   @apply bg-background text-foreground font-sans overflow-x-hidden;
+   cursor: auto;
+   /* show normal pointer */
+ }
+
+ * {
+   cursor: auto !important;
+   /* override the media query hiding cursor */
+ }
   
   html {
     scroll-behavior: smooth;
@@ -160,7 +166,7 @@
   /* Hide default cursor on desktop */
   @media (hover: hover) and (pointer: fine) {
     * {
-      cursor: none !important;
+      cursor: auto !important;
     }
   }
   

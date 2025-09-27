@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { SEOHead } from '@/components/SEOHead';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { Navigation } from '@/components/Navigation';
 
 export default function Contact() {
   const contactInfo = [
@@ -75,6 +76,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen pt-20">
+      <Navigation/>
       <SEOHead 
         title="Contact Us"
         description="Contact Atlantis NDT for professional Non-Destructive Testing services. Expert team providing 24/7 support for inspection, training, and consultancy needs across North America."
