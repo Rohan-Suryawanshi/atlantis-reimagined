@@ -146,10 +146,11 @@ export default function Index() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               <span className="gradient-text">Digital Twins</span> Technology
             </h2>
-            
+
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
               Stay up to date with Atlantis's technological advancements. We offer VR/AR 
               or web-based Digital Twins used for asset integrity and enhanced learning programs in NDT.
