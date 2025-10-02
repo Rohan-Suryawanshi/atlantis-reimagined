@@ -382,7 +382,7 @@ export default function Training() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-primary text-primary-foreground">
+        <section className="py-20 bg-gray-100">
            <div className="container mx-auto px-6 text-center">
               <motion.div
                  initial={{ y: 30, opacity: 0 }}
@@ -390,7 +390,7 @@ export default function Training() {
                  viewport={{ once: true }}
                  transition={{ duration: 0.8 }}
               >
-                 <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
                     Advance Your NDT Career
                  </h2>
                  <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
@@ -401,14 +401,14 @@ export default function Training() {
                     <Button
                        size="lg"
                        variant="outline"
-                       className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                       className="bg-transparent border-primary text-primary hover:bg-primary hover:text-white"
                     >
                        View Schedule
                     </Button>
                     <Button
                        size="lg"
                        variant="outline"
-                       className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                       className="bg-transparent border-primary text-primary hover:bg-primary hover:text-white"
                     >
                        Register Now
                     </Button>

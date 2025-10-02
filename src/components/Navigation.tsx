@@ -23,7 +23,6 @@ const navItems = [
          { name: "Digital Twins", path: "/digital-twins" },
          { name: "ERP", path: "https://odoo.atlantisndt.com/" },
          { name: "NDT Connect", path: "https://ndt-connect.com/" },
-         { name: "Other Product", path: "/other-product" },
       ],
    },
 
@@ -76,11 +75,9 @@ export const Navigation = () => {
             <div className="flex items-center justify-between">
                {/* Logo */}
                <motion.div variants={itemVariants}>
-                  <Link to="/" className="flex items-center space-x-2">
-                     <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-                        <span className="text-primary-foreground font-bold text-xl">
-                           A
-                        </span>
+                  <Link to="/" className="flex items-center space-x-2 ">
+                     <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+                        <img src="./atlantis.png" alt="Logo" />
                      </div>
                      <span className="font-bold text-xl gradient-text">
                         Atlantis NDT
@@ -124,7 +121,7 @@ export const Navigation = () => {
                                  <Link
                                     key={sub.name}
                                     to={sub.path}
-                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary hover:text-white"
                                  >
                                     {sub.name}
                                  </Link>
@@ -149,7 +146,9 @@ export const Navigation = () => {
 
                {/* CTA Button */}
                <motion.div className="hidden md:block" variants={itemVariants}>
-                  <Button className="btn-primary">Get Quote</Button>
+                  <Button className="btn-primary">
+                     <Link to="/contact"> Get Quote</Link>
+                  </Button>
                </motion.div>
 
                {/* Mobile Menu Toggle */}
@@ -171,7 +170,7 @@ export const Navigation = () => {
                animate={{ height: isOpen ? "auto" : 0 }}
                transition={{ duration: 0.3 }}
             >
-               <div className="py-4 space-y-2">
+               <div className="py-4 space-y-2 backdrop-blur-md">
                   {navItems.map((item, index) =>
                      item.dropdown ? (
                         <div key={item.name}>
@@ -222,7 +221,9 @@ export const Navigation = () => {
                      )
                   )}
 
-                  <Button className="btn-primary w-full mt-4">Get Quote</Button>
+                  <Button className="btn-primary w-full mt-4">
+                     <Link to="/contact"> Get Quote</Link>
+                  </Button>
                </div>
             </motion.div>
          </div>
