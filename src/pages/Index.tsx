@@ -11,6 +11,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import FeatureSection from '@/components/FeatureSection';
 
 
 
@@ -267,8 +268,11 @@ export default function Index() {
               </Swiper>
            </div>
         </section>
+
+        <FeatureSection/>
+
         {/* Final CTA */}
-        <section className="py-20 bg-primary text-primary-foreground">
+        <section className="py-20 bg-gray-100 text-black">
            <div className="container mx-auto px-6 text-center">
               <motion.div
                  initial={{ y: 30, opacity: 0 }}
@@ -285,7 +289,7 @@ export default function Index() {
                  <Button
                     size="lg"
                     variant="outline"
-                    className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                    className="btn-primary group"
                  >
                     Contact Us Today
                  </Button>
