@@ -9,29 +9,31 @@ import Services from "./pages/Services";
 import Training from "./pages/Training";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import DigitalTwins from "./pages/DigitalTwins";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/training" element={<Training />} />
-          <Route path="/consulting" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/blog" element={<NotFound />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+   <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+         <Toaster />
+         <Sonner />
+         <BrowserRouter>
+            <Routes>
+               <Route path="/" element={<Index />} />
+               <Route path="/about" element={<About />} />
+               <Route path="/services" element={<Services />} />
+               <Route path="/training" element={<Training />} />
+               <Route path="/consulting" element={<Services />} />
+               <Route path="/contact" element={<Contact />} />
+               <Route path="/blog" element={<NotFound />} />
+               <Route path="/digital-twins" element={<DigitalTwins/>} />
+               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+               <Route path="*" element={<NotFound />} />
+            </Routes>
+         </BrowserRouter>
+      </TooltipProvider>
+   </QueryClientProvider>
 );
 
 export default App;
