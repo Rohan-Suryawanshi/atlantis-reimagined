@@ -10,6 +10,9 @@ import Training from "./pages/Training";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import DigitalTwins from "./pages/DigitalTwins";
+import Erp from "./pages/Erp";
+import NDTConnect from "./pages/NdtConnect";
+import BlogPage from "./pages/Blog";
 
 const queryClient = new QueryClient();
 
@@ -26,8 +29,10 @@ const App = () => (
                <Route path="/training" element={<Training />} />
                <Route path="/consulting" element={<Services />} />
                <Route path="/contact" element={<Contact />} />
-               <Route path="/blog" element={<NotFound />} />
+               <Route path="/blog" element={<BlogPage />} />
                <Route path="/digital-twins" element={<DigitalTwins/>} />
+               <Route path="/erp" element={<Erp />} />
+               <Route path="/ndt-connect" element={<NDTConnect />} />
                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                <Route path="*" element={<NotFound />} />
             </Routes>
