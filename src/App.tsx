@@ -11,7 +11,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import DigitalTwins from "./pages/DigitalTwins";
 import Erp from "./pages/Erp";
-import NDTConnect from "./pages/NdtConnect";
+import NDTConnect from "./pages/NDTConnect";
 import BlogPage from "./pages/Blog";
 
 const queryClient = new QueryClient();
