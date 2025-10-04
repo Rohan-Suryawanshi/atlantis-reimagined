@@ -9,6 +9,7 @@ export default function ContactDetails() {
          href: "https://www.google.com/maps/place/Atlantis+NDT",
       },
       { name: "WhatsApp", href: "https://wa.me/918688325653" },
+      { name: "Blog", href: "/blog" },
    ];
 
    const offices = [

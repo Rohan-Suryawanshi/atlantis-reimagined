@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -115,13 +116,15 @@ export const Hero = () => {
                  variants={itemVariants}
                  className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
               >
-                 <Button
-                    size="lg"
-                    className="btn-primary group px-8 py-4 text-lg"
-                 >
-                    Get Started
-                    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                 </Button>
+                 <Link to="/contact">
+                    <Button
+                       size="lg"
+                       className="btn-primary group px-8 py-4 text-lg"
+                    >
+                       Get Started
+                       <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                 </Link>
                  <Button
                     size="lg"
                     variant="outline"

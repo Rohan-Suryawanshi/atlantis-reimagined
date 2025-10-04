@@ -21,13 +21,12 @@ const navItems = [
       name: "Products",
       dropdown: [
          { name: "Digital Twins", path: "/digital-twins" },
-         { name: "ERP", path: "https://odoo.atlantisndt.com/" },
-         { name: "NDT Connect", path: "https://ndt-connect.com/" },
+         { name: "ERP", path: "/erp" },
+         { name: "NDT Connect", path: "/ndt-connect" },
       ],
    },
 
    { name: "Contact", path: "/contact" },
-   { name: "Blog", path: "/blog" },
 ];
 
 export const Navigation = () => {
@@ -79,7 +78,7 @@ export const Navigation = () => {
                      <div className="w-10 h-10 rounded-lg flex items-center justify-center">
                         <img src="./atlantis.png" alt="Logo" />
                      </div>
-                     <span className="font-bold text-xl gradient-text">
+                     <span className="font-bold text-xl text-primary">
                         Atlantis NDT
                      </span>
                   </Link>

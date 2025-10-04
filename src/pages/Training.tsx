@@ -7,7 +7,7 @@ import { SEOHead } from '@/components/SEOHead';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { Navigation } from '@/components/Navigation';
 import ContactDetails from '@/components/ContactDetails';
-
+import { Link } from 'react-router-dom';
 export default function Training() {
   const courses = [
      {
@@ -324,7 +324,11 @@ export default function Training() {
                           <span>Accelerated learning curve</span>
                        </li>
                     </ul>
-                    <Button className="btn-primary">Explore VR Training</Button>
+                    <Link to="/digital-twins">
+                       <Button className="btn-primary">
+                          Explore VR Training
+                       </Button>
+                    </Link>
                  </motion.div>
                  <motion.div
                     initial={{ x: 50, opacity: 0 }}
@@ -411,13 +415,19 @@ export default function Training() {
                        variant="outline"
                        className="bg-transparent border-primary text-primary hover:bg-primary hover:text-white"
                     >
-                       Register Now
+                       {" "}
+                       <a
+                          href="https://forms.office.com/Pages/ResponsePage.aspx?id=ufHGAhf8REe02YKd5W-vdchw0gpIkUdMqiTcsnOro6ZUQUJURlY2M09ERUYzOFAzTERBN0NFVVc3MS4u"
+                          target="_blank"
+                       >
+                          Contact Us Today
+                       </a>
                     </Button>
                  </div>
               </motion.div>
            </div>
         </section>
-        <ContactDetails/>
+        <ContactDetails />
      </div>
   );
 }
