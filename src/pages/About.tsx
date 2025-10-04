@@ -6,6 +6,7 @@ import { Users, Award, Target, TrendingUp } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { SEOHead } from "@/components/SEOHead";
 import { Navigation } from "@/components/Navigation";
+import ContactDetails from "@/components/ContactDetails";
 
 interface StatProps {
    value: number;
@@ -278,6 +279,7 @@ export default function About() {
                </div>
             </div>
          </section>
+         <ContactDetails/>
       </div>
    );
 }

@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { SEOHead } from '@/components/SEOHead';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { Navigation } from '@/components/Navigation';
+import { Link } from 'react-router-dom';
+import ContactDetails from '@/components/ContactDetails';
 
 export default function Services() {
   const services = [
@@ -256,7 +258,9 @@ export default function Services() {
                           <span>Enhanced Learning Programs</span>
                        </li>
                     </ul>
-                    <Button className="btn-primary">Learn More</Button>
+                    <Button className="btn-primary">
+                       <Link to={"/digital-twins"}>Learn More</Link>
+                    </Button>
                  </motion.div>
                  <motion.div
                     initial={{ x: 50, opacity: 0 }}
@@ -301,11 +305,12 @@ export default function Services() {
                     your specific requirements.
                  </p>
                  <Button size="lg" variant="outline" className="btn-primary">
-                    Get a Quote
+                    <Link to={"/contact"}>Get a Quote</Link>
                  </Button>
               </motion.div>
            </div>
         </section>
+        <ContactDetails/>
      </div>
   );
 }

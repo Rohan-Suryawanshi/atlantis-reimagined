@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import InteractiveModelWrapper from "../components/InteractiveModelWrapper";
 import { Navigation } from "@/components/Navigation";
+import ContactDetails from "@/components/ContactDetails";
 
 const models = [
    {
@@ -11,16 +12,16 @@ const models = [
          "Experience a high-fidelity 3D model of a jet engine. Explore the internal components and understand the working principles of modern aviation engines.",
    },
    {
-      name: "Car Engine",
-      path: "/car_engine.glb",
+      name: "Power Plant",
+      path: "/danube_power-plant.glb",
       description:
-         "Dive into a detailed car engine model with moving parts. Understand mechanics, performance optimization, and maintenance procedures interactively.",
+         "Dive into a detailed power plant model with moving parts. Understand mechanics, performance optimization, and maintenance procedures interactively.",
    },
    {
-      name: "Turbine",
-      path: "/turbine.glb",
+      name: "Modular Pipes",
+      path: "/old_rusted_modular_pipes.glb",
       description:
-         "An industrial turbine model designed for training and simulation. Examine structural details and operational dynamics for real-world applications.",
+         "An industrial modular pipes model designed for training and simulation. Examine structural details and operational dynamics for real-world applications.",
    },
 ];
 
@@ -115,6 +116,7 @@ export default function DigitalTwins() {
                   </a>
                </div>
             </section>
+            <ContactDetails/>
          </div>
       </>
    );
