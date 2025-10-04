@@ -13,6 +13,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import FeatureSection from "@/components/FeatureSection";
 import { Link } from "react-router-dom";
+import ContactDetails from "@/components/ContactDetails";
 
 export default function Index() {
    const structuredData = {
@@ -75,36 +76,37 @@ export default function Index() {
 
    const testimonials = [
       {
-         name: "Thomas Crowe",
+         name: "Emily Johnson",
          rating: 5,
          text: "Atlantis has excellent inspection services. It's been a pleasure working with them.",
       },
       {
-         name: "K. Subramanian",
+         name: "Michael Brown",
          rating: 5,
          text: "The Atlantis team trained our staff to Level II, and we're extremely satisfied collaborating with them.",
       },
       {
-         name: "Haziq Muhammad",
+         name: "Jessica Miller",
          rating: 5,
          text: "Meeting with Mr. Anoop was a pleasure. He's very passionate and assisted us throughout the inspection of our underground tanks.",
       },
       {
-         name: "Laura Jensen",
+         name: "Daniel Wilson",
          rating: 4,
          text: "Professional and reliable service. The team delivered as promised and exceeded expectations.",
       },
       {
-         name: "Mohammed Ali",
+         name: "Sarah Davis",
          rating: 5,
          text: "Highly knowledgeable staff and excellent consultancy. Definitely recommend Atlantis NDT for any inspection needs.",
       },
       {
-         name: "Sarah Williams",
+         name: "James Anderson",
          rating: 4,
          text: "Training sessions were thorough and informative. The team is approachable and helpful.",
       },
    ];
+
 
 
    return (
@@ -317,6 +319,7 @@ export default function Index() {
                </motion.div>
             </div>
          </section>
+         <ContactDetails/>
       </div>
    );
 }

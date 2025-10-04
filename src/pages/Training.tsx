@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { SEOHead } from '@/components/SEOHead';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { Navigation } from '@/components/Navigation';
+import ContactDetails from '@/components/ContactDetails';
 
 export default function Training() {
   const courses = [
@@ -27,7 +28,7 @@ export default function Training() {
         level: "Level II",
         title: "NDT Inspector",
         duration: "80 hours",
-        methods: ["UT", "MT", "PT", "VT", "RT", "ET"],
+        methods: ["UT", "MT", "PT", "VT", "RT"],
         description:
            "Advanced techniques and interpretation for experienced professionals.",
         features: [
@@ -42,7 +43,7 @@ export default function Training() {
         level: "Level III",
         title: "Senior Inspector",
         duration: "120 hours",
-        methods: ["All Methods"],
+        methods: ["UT", "MT", "PT", "VT", "RT", "ET"],
         description:
            "Comprehensive training for senior professionals and consultants.",
         features: [
@@ -398,13 +399,13 @@ export default function Training() {
                     skills to the next level.
                  </p>
                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button
+                    {/* <Button
                        size="lg"
                        variant="outline"
                        className="bg-transparent border-primary text-primary hover:bg-primary hover:text-white"
                     >
                        View Schedule
-                    </Button>
+                    </Button> */}
                     <Button
                        size="lg"
                        variant="outline"
@@ -416,6 +417,7 @@ export default function Training() {
               </motion.div>
            </div>
         </section>
+        <ContactDetails/>
      </div>
   );
 }

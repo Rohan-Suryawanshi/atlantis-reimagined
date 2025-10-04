@@ -9,73 +9,125 @@ import { SEOHead } from "@/components/SEOHead";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Navigation } from "@/components/Navigation";
 import { Users, CheckCircle2, Cpu, Award } from "lucide-react";
+import ContactDetails from "@/components/ContactDetails";
+import { useRef, useState } from "react";
+import { send, sendForm } from "@emailjs/browser";
 
 export default function Contact() {
-   const contactInfo = [
-      {
-         icon: Phone,
-         title: "Phone",
-         details: "+1 (555) 123-4567",
-         subtitle: "Mon-Fri, 8AM - 6PM",
-      },
-      {
-         icon: Mail,
-         title: "Email",
-         details: "info@atlantisndt.com",
-         subtitle: "24/7 Support",
-      },
-      {
-         icon: MapPin,
-         title: "Location",
-         details: "North America",
-         subtitle: "Multiple Locations",
-      },
-      {
-         icon: Clock,
-         title: "Response Time",
-         details: "< 24 Hours",
-         subtitle: "Emergency Available",
-      },
-   ];
+      const contactInfo = [
+         {
+            icon: Phone,
+            title: "Phone",
+            details: "+1 (281) 840-8969",
+            subtitle: "Mon-Fri, 8AM - 6PM",
+         },
+         {
+            icon: Mail,
+            title: "Email",
+            details: "info@atlantisinspection.com",
+            subtitle: "24/7 Support",
+         },
+         {
+            icon: MapPin,
+            title: "Location",
+            details: "Houston, USA",
+            subtitle: "Multiple Locations",
+         },
+         {
+            icon: Clock,
+            title: "Response Time",
+            details: "< 24 Hours",
+            subtitle: "Emergency Available",
+         },
+      ];
 
-   const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: "Atlantis NDT",
-      description:
-         "Professional Non-Destructive Testing services, training, and consultancy",
-      url: "https://atlantisndt.com",
-      contactPoint: {
-         "@type": "ContactPoint",
-         telephone: "+1-555-123-4567",
-         contactType: "Customer Service",
-         email: "info@atlantisndt.com",
-      },
-      serviceArea: "North America",
-      hasOfferCatalog: {
-         "@type": "OfferCatalog",
-         name: "NDT Services",
-         itemListElement: [
-            {
-               "@type": "Offer",
-               itemOffered: {
-                  "@type": "Service",
-                  name: "Ultrasonic Testing",
-                  description:
-                     "Detect internal flaws using high-frequency sound waves",
+      const structuredData = {
+         "@context": "https://schema.org",
+         "@type": "Organization",
+         name: "Atlantis NDT",
+         description:
+            "Professional Non-Destructive Testing services, training, and consultancy",
+         url: "https://atlantisndt.com",
+         contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+1-555-123-4567",
+            contactType: "Customer Service",
+            email: "info@atlantisndt.com",
+         },
+         serviceArea: "North America",
+         hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "NDT Services",
+            itemListElement: [
+               {
+                  "@type": "Offer",
+                  itemOffered: {
+                     "@type": "Service",
+                     name: "Ultrasonic Testing",
+                     description:
+                        "Detect internal flaws using high-frequency sound waves",
+                  },
                },
-            },
-            {
-               "@type": "Offer",
-               itemOffered: {
-                  "@type": "Service",
-                  name: "Radiographic Testing",
-                  description:
-                     "X-ray & gamma ray inspection for internal structures",
+               {
+                  "@type": "Offer",
+                  itemOffered: {
+                     "@type": "Service",
+                     name: "Radiographic Testing",
+                     description:
+                        "X-ray & gamma ray inspection for internal structures",
+                  },
                },
-            },
-         ],
-      },
+            ],
+         },
+      };
+
+   const [formData, setFormData] = useState({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      company: "",
+      service: "",
+      message: "",
+   });
+   const [loading, setLoading] = useState(false);
+   const [success, setSuccess] = useState("");
+   const formRef = useRef<HTMLFormElement>(null);
+   const handleChange = (
+      e: React.ChangeEvent<
+         HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      >
+   ) => {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+   };
+   const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      setLoading(true);
+      setSuccess("");
+
+      try {
+         await sendForm(
+            "service_ty0nowj",
+            "template_bgstrhq",
+            formRef.current,
+            "j82n918eaGnIrxsIW"
+         );
+         setSuccess("Message sent successfully!");
+         setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            company: "",
+            service: "",
+            message: "",
+         });
+      } catch (error) {
+         console.error(error);
+         setSuccess("Failed to send message. Try again later.");
+      }
+
+      setLoading(false);
    };
 
    return (
@@ -170,7 +222,7 @@ export default function Contact() {
                            </p>
                         </CardHeader>
                         <CardContent>
-                           <form className="space-y-6">
+                           <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
                               <div className="grid md:grid-cols-2 gap-4">
                                  <div>
                                     <Label htmlFor="firstName">
@@ -178,8 +230,11 @@ export default function Contact() {
                                     </Label>
                                     <Input
                                        id="firstName"
+                                       name="firstName"
                                        placeholder="John"
                                        required
+                                       value={formData.firstName}
+                                       onChange={handleChange}
                                     />
                                  </div>
                                  <div>
@@ -188,8 +243,11 @@ export default function Contact() {
                                     </Label>
                                     <Input
                                        id="lastName"
+                                       name="lastName"
                                        placeholder="Doe"
                                        required
+                                       value={formData.lastName}
+                                       onChange={handleChange}
                                     />
                                  </div>
                               </div>
@@ -197,24 +255,33 @@ export default function Contact() {
                                  <Label htmlFor="email">Email *</Label>
                                  <Input
                                     id="email"
+                                    name="email"
                                     type="email"
                                     placeholder="john@company.com"
                                     required
+                                    value={formData.email}
+                                    onChange={handleChange}
                                  />
                               </div>
                               <div>
                                  <Label htmlFor="phone">Phone</Label>
                                  <Input
                                     id="phone"
+                                    name="phone"
                                     type="tel"
                                     placeholder="+1 (555) 123-4567"
+                                    value={formData.phone}
+                                    onChange={handleChange}
                                  />
                               </div>
                               <div>
                                  <Label htmlFor="company">Company</Label>
                                  <Input
                                     id="company"
+                                    name="company"
                                     placeholder="Your Company Name"
+                                    value={formData.company}
+                                    onChange={handleChange}
                                  />
                               </div>
                               <div>
@@ -223,7 +290,10 @@ export default function Contact() {
                                  </Label>
                                  <select
                                     id="service"
+                                    name="service"
                                     className="w-full p-3 border border-input rounded-md bg-background"
+                                    value={formData.service}
+                                    onChange={handleChange}
                                  >
                                     <option value="">Select a service</option>
                                     <option value="inspection">
@@ -244,12 +314,18 @@ export default function Contact() {
                                  <Label htmlFor="message">Message *</Label>
                                  <Textarea
                                     id="message"
+                                    name="message"
                                     placeholder="Tell us about your project..."
                                     rows={5}
                                     required
+                                    value={formData.message}
+                                    onChange={handleChange}
                                  />
                               </div>
-                              <Button className="btn-primary w-full group">
+                              <Button
+                                 className="btn-primary w-full group"
+                                 onClick={handleSubmit}
+                              >
                                  Send Message{" "}
                                  <Send className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                               </Button>
@@ -266,7 +342,6 @@ export default function Contact() {
                      transition={{ duration: 0.8, delay: 0.2 }}
                      className="space-y-6"
                   >
-                     
                      <Card className="border-0 shadow-lg p-6">
                         <CardHeader>
                            <CardTitle className="text-2xl">
@@ -356,12 +431,14 @@ export default function Contact() {
                      size="lg"
                      variant="outline"
                      className="bg-transparent border-primary text-primary hover:bg-primary hover:text-white"
+                     onClick={() => window.location.href = 'tel:+12818408969'}
                   >
-                     Emergency Hotline: +1 (555) 911-NDT
+                     Emergency Hotline: +1 (281) 840-8969
                   </Button>
                </motion.div>
             </div>
          </section>
+         <ContactDetails />
       </div>
    );
 }
