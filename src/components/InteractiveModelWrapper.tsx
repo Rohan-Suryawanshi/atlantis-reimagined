@@ -99,7 +99,7 @@ export default function InteractiveModelWrapper({
                enableZoom={true} // allow zoom
                enablePan={true} // allow pan
                minDistance={2} // min zoom distance
-               maxDistance={60} // max zoom distance
+               maxDistance={10} // max zoom distance
                rotateSpeed={0.8} // rotation sensitivity
                zoomSpeed={1.2} // zoom sensitivity
                panSpeed={0.8} // pan sensitivity
