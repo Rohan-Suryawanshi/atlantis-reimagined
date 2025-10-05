@@ -22,11 +22,11 @@ const models = [
          "Dive into a detailed factory model with moving parts. Understand mechanics, performance optimization, and maintenance procedures interactively.",
    },
    {
-      name: "Modular Pipes",
-      path: "/old_rusted_modular_pipes.glb",
+      name: "Tank",
+      path: "/propane_tank.glb",
       component: InteractivePipe,
       description:
-         "An industrial modular pipes model designed for training and simulation. Examine structural details and operational dynamics for real-world applications.",
+         "An industrial tank model designed for training and simulation. Examine structural details and operational dynamics for real-world applications.",
    },
 ];
 
