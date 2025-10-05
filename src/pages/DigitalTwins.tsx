@@ -1,25 +1,30 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import InteractiveModelWrapper from "../components/InteractiveModelWrapper";
 import { Navigation } from "@/components/Navigation";
 import ContactDetails from "@/components/ContactDetails";
+import InteractiveJet from "@/components/InteractiveJet";
+import InteractivePlant from "@/components/InteractivePlant";
+import InteractivePipe from "@/components/InteractivePipe";
 
 const models = [
    {
       name: "Jet Engine",
       path: "/jet_engine.glb",
+      component: InteractiveJet,
       description:
          "Experience a high-fidelity 3D model of a jet engine. Explore the internal components and understand the working principles of modern aviation engines.",
    },
    {
-      name: "Power Plant",
+      name: "Industry",
       path: "/generic_factory_with_smoke_towers.glb",
+      component: InteractivePlant,
       description:
-         "Dive into a detailed power plant model with moving parts. Understand mechanics, performance optimization, and maintenance procedures interactively.",
+         "Dive into a detailed factory model with moving parts. Understand mechanics, performance optimization, and maintenance procedures interactively.",
    },
    {
       name: "Modular Pipes",
       path: "/old_rusted_modular_pipes.glb",
+      component: InteractivePipe,
       description:
          "An industrial modular pipes model designed for training and simulation. Examine structural details and operational dynamics for real-world applications.",
    },
@@ -28,9 +33,13 @@ const models = [
 export default function DigitalTwins() {
    const [selectedModel, setSelectedModel] = useState(models[0]);
 
+   // Dynamically render the component associated with the selected model
+   const SelectedComponent = selectedModel.component;
+
    return (
       <>
-      <Navigation/>
+         <Navigation />
+
          <div className="w-full min-h-screen flex flex-col bg-gray-100">
             {/* Hero Section */}
             <section className="py-16 bg-gradient-to-r from-primary/10 to-accent/10 text-center">
@@ -66,7 +75,7 @@ export default function DigitalTwins() {
                ))}
             </section>
 
-            {/* Full-width Model Display */}
+            {/* 3D Model Display */}
             <section className="w-full bg-gray-100 max-w-7xl mx-auto flex flex-col items-center gap-8">
                <motion.div
                   className="w-full h-[600px] lg:h-[700px] rounded-xl shadow-xl overflow-hidden"
@@ -74,7 +83,7 @@ export default function DigitalTwins() {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.8 }}
                >
-                  <InteractiveModelWrapper modelPath={selectedModel.path} />
+                  <SelectedComponent modelPath={selectedModel.path} />
                </motion.div>
 
                {/* Model Description */}
@@ -116,7 +125,8 @@ export default function DigitalTwins() {
                   </a>
                </div>
             </section>
-            <ContactDetails/>
+
+            <ContactDetails />
          </div>
       </>
    );
