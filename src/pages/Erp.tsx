@@ -266,11 +266,26 @@ export default function Erp() {
                      Request a demo to see how our ERP platform can transform
                      your business operations.
                   </p>
-                  <Button size="lg" variant="outline" className="btn-primary">
-                     <Link to={"https://odoo.atlantisndt.com/"}>
-                        Get a Demo
-                     </Link>
-                  </Button>
+                  <div className="flex justify-center gap-3">
+                        <Button
+                        size="lg"
+                        variant="outline"
+                        className="btn-primary"
+                     >
+                        <Link to={"https://odoo.atlantisndt.com/"}>
+                           Get a Demo
+                        </Link>
+                     </Button>
+                     <Button
+                        size="lg"
+                        variant="outline"
+                        className="btn-primary"
+                     >
+                        <Link to={"/contact"}>
+                           Get demo Credentials
+                        </Link>
+                     </Button>
+                  </div>
                </motion.div>
             </div>
          </section>

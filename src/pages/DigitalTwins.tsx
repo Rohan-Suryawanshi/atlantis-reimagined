@@ -13,7 +13,7 @@ const models = [
    },
    {
       name: "Power Plant",
-      path: "/danube_power-plant.glb",
+      path: "/generic_factory_with_smoke_towers.glb",
       description:
          "Dive into a detailed power plant model with moving parts. Understand mechanics, performance optimization, and maintenance procedures interactively.",
    },
