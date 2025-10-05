@@ -24,7 +24,7 @@ export default function InteractivePipe({
 }) {
    return (
       <div className="w-full h-full relative overflow-hidden rounded-2xl">
-         <Canvas camera={{ position: [0, 40, 40], fov: 45 }}>
+         <Canvas camera={{ position: [90, 0, 10], fov: 45 }}>
             <ambientLight intensity={0.8} />
             <directionalLight position={[5, 5, 5]} intensity={1.2} />
             <pointLight position={[-5, -5, -5]} intensity={0.4} />
@@ -38,11 +38,10 @@ export default function InteractivePipe({
                enableZoom={true}
                enablePan={true}
                minDistance={2}
-               maxDistance={100}
+               maxDistance={60}
                rotateSpeed={0.8}
                zoomSpeed={1.2}
                panSpeed={0.8}
-               target={[0, 0, 0]} // focus on model center
             />
          </Canvas>
       </div>

@@ -8,7 +8,7 @@ export default function ContactDetails() {
          name: "Google Maps",
          href: "https://www.google.com/maps/place/Atlantis+NDT",
       },
-      { name: "WhatsApp", href: "https://wa.me/918688325653" },
+      { name: "WhatsApp", href: "https://wa.me/+12818408969" },
       { name: "Blog", href: "/blog" },
    ];
 
@@ -34,11 +34,7 @@ export default function ContactDetails() {
                <ul className="space-y-2 break-words">
                   <li className="flex items-center gap-2 text-sm md:text-base">
                      <Mail className="w-5 h-5 text-accent flex-shrink-0" />
-                     <span>info@atlantisinspection.com</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm md:text-base">
-                     <Mail className="w-5 h-5 text-accent flex-shrink-0" />
-                     <span>tech@atlantisndt.com</span>
+                     <span>info@atlantisndt.com</span>
                   </li>
                </ul>
             </div>
@@ -57,7 +53,7 @@ export default function ContactDetails() {
                   </li>
                </ul>
             </div>
-            
+
             {/* Social Links */}
             <div>
                <h3 className="text-lg font-semibold mb-3">Connect</h3>

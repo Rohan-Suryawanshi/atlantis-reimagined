@@ -13,6 +13,7 @@ import DigitalTwins from "./pages/DigitalTwins";
 import Erp from "./pages/Erp";
 import NDTConnect from "./pages/NDTConnect";
 import BlogPage from "./pages/Blog";
+import ConsultingServices from "./pages/ConsultingServices";
 
 const queryClient = new QueryClient();
 
@@ -30,9 +31,10 @@ const App = () => (
                <Route path="/consulting" element={<Services />} />
                <Route path="/contact" element={<Contact />} />
                <Route path="/blog" element={<BlogPage />} />
-               <Route path="/digital-twins" element={<DigitalTwins/>} />
+               <Route path="/digital-twins" element={<DigitalTwins />} />
                <Route path="/erp" element={<Erp />} />
                <Route path="/ndt-connect" element={<NDTConnect />} />
+               <Route path="/consulting-service" element={<ConsultingServices />} />
                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                <Route path="*" element={<NotFound />} />
             </Routes>
