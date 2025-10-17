@@ -15,7 +15,7 @@
     "inlineCss": false,
     "minifyHtml": true,
     "source": "dist",
-    "puppeteer":"./src/react-snap-puppeteer.js",
+    "puppeteer": "./src/react-snap-puppeteer.js",
     "routes": [
       "/",
       "/about",
