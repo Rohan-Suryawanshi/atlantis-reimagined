@@ -47,14 +47,7 @@ export default function BlogPage() {
          snippet:
             "A deep dive into liquid penetrant testing and its role in non-destructive inspections.",
          link: "/blog/penetrant-testing",
-      },
-      {
-         title: "Digital Twins in NDT: Transforming Asset Management",
-         date: "October 15, 2025",
-         snippet:
-            "Explore how digital twins and VR/AR technology improve NDT processes and training.",
-         link: "/blog/digital-twins-ndt",
-      },
+      }
    ];
 
    return (
